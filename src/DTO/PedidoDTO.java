@@ -6,6 +6,7 @@ public class PedidoDTO {
    private String nome;
    private double preco;
    private double ValorTotal;
+   private int id;
 
     /**
      * @return the nome
@@ -47,5 +48,19 @@ public class PedidoDTO {
      */
     public void setValorTotal(double ValorTotal) {
         this.ValorTotal = ValorTotal;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 }
