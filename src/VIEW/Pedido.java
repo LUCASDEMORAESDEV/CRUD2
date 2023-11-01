@@ -119,20 +119,8 @@ public class Pedido extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        String nome;
-        double ValorTotal, preco;
-
-        nome = txtNome.getText();
-        preco = Double.parseDouble(txtPreco.getText());
-        ValorTotal = Double.parseDouble(txtValor.getText());
-
-        PedidoDTO objetopedidodto = new PedidoDTO();
-        objetopedidodto.setNome(nome);
-        objetopedidodto.setPreco(preco);
-        objetopedidodto.setValorTotal(ValorTotal);
-
-        PedidoDAO objetopedidodao = new PedidoDAO();
-        objetopedidodao.cadastrar(objetopedidodto);
+       cadastrar();
+       listaValores();
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -199,6 +187,7 @@ public class Pedido extends javax.swing.JFrame {
 
             for (int num = 0; num < lista.size(); num++) {
                 model.addRow(new Object[]{
+                    lista.get(num).getId(),
                     lista.get(num).getNome(),
                     lista.get(num).getPreco(),
                     lista.get(num).getValorTotal()
@@ -210,4 +199,23 @@ public class Pedido extends javax.swing.JFrame {
         }
     }
 
+private void cadastrar(){
+ String nome;
+        double ValorTotal, preco = 0;
+        
+        
+
+        nome = txtNome.getText();
+        preco = Double.parseDouble(txtPreco.getText());
+        ValorTotal = Double.parseDouble(txtValor.getText());
+
+        PedidoDTO objetopedidodto = new PedidoDTO();
+        objetopedidodto.setNome(nome);
+        objetopedidodto.setPreco(preco);
+        objetopedidodto.setValorTotal(ValorTotal);
+
+        PedidoDAO objetopedidodao = new PedidoDAO();
+        objetopedidodao.cadastrar(objetopedidodto);
+
+}
 }
